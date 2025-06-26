@@ -51,6 +51,6 @@ jobs:
       - name: Deploy manifest
         run: |
           ssh -o StrictHostKeyChecking=no root@44.202.48.164 << 'EOF'
-            kubectl set image deployment/teste-felipe teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
+            kubectl set image deployment/sre-api teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
           EOF
 
