@@ -51,6 +51,8 @@ jobs:
       - name: Deploy manifest
         run: |
           ssh -o StrictHostKeyChecking=no root@44.202.48.164 << 'EOF'
-            kubectl set image deployment/sre-api teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
+            # Primeiro cria (ou atualiza) o deployment/service
+            kubectl apply -f /home/ubuntu/projeto/k8s-manifest.yaml
+            # Depois ajusta a imagem (evita recriar tudo caso só mudem tags)
+            kubectl set image deployment/teste-felipe teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
           EOF
-

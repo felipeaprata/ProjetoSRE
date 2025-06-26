@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sre-api
+  name: teste-felipe
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sre-api
+      app: teste-felipe
   template:
     metadata:
       labels:
-        app: sre-api
+        app: teste-felipe
     spec:
       containers:
-      - name: sre-api
+      - name: teste-felipe
         image: 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:latest
         ports:
         - containerPort: 3000
@@ -21,11 +21,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sre-api
+  name: teste-felipe
 spec:
   type: NodePort
   selector:
-    app: sre-api
+    app: teste-felipe
   ports:
     - port: 3000
       nodePort: 30000
