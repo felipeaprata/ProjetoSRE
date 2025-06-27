@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy manifest
         run: |
-          ssh -o StrictHostKeyChecking=no root@44.202.48.164 << 'EOF'
+          ssh -q -o StrictHostKeyChecking=no root@44.202.48.164 "bash -s" << 'EOF'
           # 1) Recria o secret com token válido
           PASSWORD=\$(aws ecr get-login-password --region us-east-1)
           kubectl create secret docker-registry ecr-registry \
