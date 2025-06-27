@@ -13,6 +13,8 @@ spec:
       labels:
         app: teste-felipe
     spec:
+      **imagePullSecrets:            # <<< este bloco garante ao K8s usar o secret abaixo
+      - name: ecr-registry**
       containers:
       - name: teste-felipe
         image: 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:latest
