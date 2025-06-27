@@ -58,7 +58,7 @@ jobs:
               --docker-username=AWS \
               --docker-password=\"\$PASSWORD\" \
               --dry-run=client -o yaml | kubectl apply -f - && \
-            kubectl apply -f /home/ubuntu/projeto/k8s-manifest.yaml && \
+            kubectl apply -f /root/projeto/k8s-manifest.yaml && \
             kubectl set image deployment/teste-felipe \
               teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }} \
               --record && \
