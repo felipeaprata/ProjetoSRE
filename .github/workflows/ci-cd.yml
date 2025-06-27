@@ -30,7 +30,9 @@ jobs:
         run: |
           docker tag teste-felipe:${{ github.sha }} 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
           docker push 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
-
+          # Empurra também o latest
+          docker tag teste-felipe:${{ github.sha }} 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:latest
+          docker push 773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:latest
   deploy-to-k8s:
     needs: build-and-push
     runs-on: ubuntu-latest
