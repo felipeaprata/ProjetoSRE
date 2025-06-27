@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy manifest
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} "\
+          ssh -o StrictHostKeyChecking=no root@44.202.48.164 "\
             PASSWORD=\$(aws ecr get-login-password --region us-east-1) && \
             kubectl create secret docker-registry ecr-registry \
               --docker-server=773571409125.dkr.ecr.us-east-1.amazonaws.com \
