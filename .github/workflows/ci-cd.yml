@@ -48,7 +48,7 @@ jobs:
           unzip awscliv2.zip
           sudo ./aws/install
 
-      - uses: webfactory/ssh-agent@v0
+      - uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
