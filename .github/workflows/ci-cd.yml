@@ -48,8 +48,7 @@ jobs:
           unzip awscliv2.zip
           sudo ./aws/install
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.8.0
+      - uses: webfactory/ssh-agent@v0
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
@@ -68,6 +67,5 @@ jobs:
             kubectl apply -f /root/projeto/k8s-manifest.yaml
             # Depois ajusta a imagem (evita recriar tudo caso só mudem tags)
             kubectl set image deployment/teste-felipe teste-felipe=773571409125.dkr.ecr.us-east-1.amazonaws.com/teste-felipe:${{ github.sha }}
-            kubectl rollout status deployment/teste-felipe
- 
-         EOF
+            kubectl rollout status deployment/teste-felipe 
+          EOF
